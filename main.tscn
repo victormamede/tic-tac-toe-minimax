@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=3 uid="uid://3fpqbyaoaq3x"]
+
+[ext_resource type="Script" path="res://Board.cs" id="1_261gf"]
+[ext_resource type="Script" path="res://Game.cs" id="1_ekub2"]
+[ext_resource type="PackedScene" uid="uid://d4akemkim22v8" path="res://Cell.tscn" id="2_e50d1"]
+[ext_resource type="Script" path="res://BoardAnalyzer.cs" id="3_e3v07"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_ekub2")
+
+[node name="Board" type="Node2D" parent="."]
+position = Vector2(32, 32)
+script = ExtResource("1_261gf")
+metadata/_edit_group_ = true
+
+[node name="Graphics" type="Node2D" parent="Board"]
+
+[node name="Line2D" type="Line2D" parent="Board/Graphics"]
+points = PackedVector2Array(240, 0, 240, 360)
+
+[node name="Line2D2" type="Line2D" parent="Board/Graphics"]
+points = PackedVector2Array(120, 0, 120, 360)
+
+[node name="Line2D3" type="Line2D" parent="Board/Graphics"]
+points = PackedVector2Array(0, 240, 360, 240)
+
+[node name="Line2D4" type="Line2D" parent="Board/Graphics"]
+points = PackedVector2Array(0, 120, 360, 120)
+
+[node name="Areas" type="Node2D" parent="Board"]
+
+[node name="Cell0" parent="Board/Areas" instance=ExtResource("2_e50d1")]
+
+[node name="Cell1" parent="Board/Areas" instance=ExtResource("2_e50d1")]
+position = Vector2(180, 60)
+
+[node name="Cell2" parent="Board/Areas" instance=ExtResource("2_e50d1")]
+position = Vector2(300, 60)
+
+[node name="Cell3" parent="Board/Areas" instance=ExtResource("2_e50d1")]
+position = Vector2(60, 180)
+
+[node name="Cell4" parent="Board/Areas" instance=ExtResource("2_e50d1")]
+position = Vector2(180, 180)
+
+[node name="Cell5" parent="Board/Areas" instance=ExtResource("2_e50d1")]
+position = Vector2(300, 180)
+
+[node name="Cell6" parent="Board/Areas" instance=ExtResource("2_e50d1")]
+position = Vector2(60, 300)
+
+[node name="Cell7" parent="Board/Areas" instance=ExtResource("2_e50d1")]
+position = Vector2(180, 300)
+
+[node name="Cell8" parent="Board/Areas" instance=ExtResource("2_e50d1")]
+position = Vector2(300, 300)
+
+[node name="BoardAnalyzer" type="Node" parent="."]
+script = ExtResource("3_e3v07")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Restart" type="Button" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 409.0
+offset_right = 90.0
+offset_bottom = 440.0
+grow_vertical = 0
+text = "Restart"
