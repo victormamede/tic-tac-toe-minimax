@@ -1,3 +1,5 @@
+namespace TicTacToe;
+
 [Tool]
 public partial class Circle : Node2D
 {

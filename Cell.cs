@@ -1,3 +1,5 @@
+namespace TicTacToe;
+
 public partial class Cell : Area2D
 {
     public int BoardIndex = 0;

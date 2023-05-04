@@ -1,3 +1,5 @@
+namespace TicTacToe;
+
 using System.Collections.Generic;
 
 public partial class BoardAnalyzer : Node

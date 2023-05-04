@@ -1,3 +1,5 @@
+namespace TicTacToe;
+
 public struct BoardState
 {
     public CellState this[int index]
