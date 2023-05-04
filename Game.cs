@@ -1,5 +1,6 @@
-using Godot;
-using System;
+global using Godot;
+global using System;
+global using System.Linq;
 
 public partial class Game : Node2D
 {
