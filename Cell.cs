@@ -27,10 +27,7 @@ public partial class Cell : Area2D
         Redraw();
     }
 
-    public void SetHighlight(bool highlighted)
-    {
-        _highlight.Visible = highlighted;
-    }
+    public void SetHighlight(bool highlighted) => _highlight.Visible = highlighted;
 
     public void SetScore(float score)
     {

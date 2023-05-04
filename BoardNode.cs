@@ -9,15 +9,10 @@ public struct BoardNode
     public int move;
     public int depth;
 
-    public float GetScore()
+    public float GetScore() => BoardState.GetWinner() switch
     {
-        switch (BoardState.GetWinner())
-        {
-            case BoardState.Player.CROSS:
-                return 1f;
-            case BoardState.Player.CIRCLE:
-                return -1f;
-        }
-        return 0f;
-    }
+        BoardState.Player.CROSS => 1f,
+        BoardState.Player.CIRCLE => -1f,
+        _ => 0f,
+    };
 }

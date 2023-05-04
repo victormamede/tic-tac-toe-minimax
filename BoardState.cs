@@ -11,7 +11,7 @@ public struct BoardState
         }
     }
 
-    private CellState[] _state = {
+    private readonly CellState[] _state = {
         CellState.FREE,
         CellState.FREE,
         CellState.FREE,
@@ -83,7 +83,7 @@ public struct BoardState
 
         foreach (var state in _state)
         {
-            board = board << 1;
+            board <<= 1;
             if (type == state)
                 board++;
         }

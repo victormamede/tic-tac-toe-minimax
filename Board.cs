@@ -7,7 +7,7 @@ public partial class Board : Node2D
     [Signal]
     public delegate void BoardStateChangedEventHandler();
     public BoardState BoardState = new();
-    private List<Cell> _cells = new();
+    private readonly List<Cell> _cells = new();
 
     public override void _Ready()
     {
@@ -61,8 +61,6 @@ public partial class Board : Node2D
         _cells.ForEach(cell => cell.SetHighlight(cell.BoardIndex == bestMove));
     }
 
-    internal void OnScoreCalculated(int index, float score)
-    {
+    internal void OnScoreCalculated(int index, float score) =>
         _cells[index].SetScore(score);
-    }
 }
