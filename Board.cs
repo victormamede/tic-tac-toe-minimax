@@ -6,7 +6,7 @@ public partial class Board : Node2D
 {
     [Signal]
     public delegate void BoardStateChangedEventHandler();
-    public BoardState BoardState = new();
+    private BoardState BoardState = new();
     private readonly List<Cell> _cells = new();
 
     public override void _Ready()

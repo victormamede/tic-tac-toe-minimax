@@ -2,7 +2,8 @@ namespace TicTacToe;
 
 public partial class Cell : Area2D
 {
-    public int BoardIndex = 0;
+    public int BoardIndex { get; set; } = 0;
+
     private CellState _state = CellState.FREE;
 
 
