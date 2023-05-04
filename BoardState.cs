@@ -1,6 +1,3 @@
-using Godot;
-using System;
-
 public struct BoardState
 {
     public CellState this[int index]

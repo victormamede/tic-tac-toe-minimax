@@ -1,6 +1,3 @@
-using Godot;
-using System;
-
 public partial class Cell : Area2D
 {
     public int BoardIndex = 0;
