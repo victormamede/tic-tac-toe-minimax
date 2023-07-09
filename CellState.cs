@@ -1,3 +1,5 @@
+namespace TicTacToe;
+
 public enum CellState
 {
     FREE = 0,

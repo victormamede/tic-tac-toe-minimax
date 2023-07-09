@@ -1,7 +1,6 @@
-using Godot;
-using System.Diagnostics;
+namespace TicTacToe;
+
 using System.Collections.Generic;
-using System.Linq;
 
 public partial class BoardAnalyzer : Node
 {
@@ -11,7 +10,7 @@ public partial class BoardAnalyzer : Node
     public delegate void ScoreCalculatedEventHandler(int index, float score);
 
     [Export]
-    public int MaxDepth = 9;
+    public int MaxDepth { get; set; } = 9;
 
     public void AnalyzeBoardState(BoardState boardState)
     {
@@ -29,16 +28,16 @@ public partial class BoardAnalyzer : Node
         var orderedNodes = rootNode.Children.OrderByDescending(child =>
         {
             float score = GetScore(child);
-            EmitSignal(SignalName.ScoreCalculated, child.move, score);
+            EmitSignal(SignalName.ScoreCalculated, child.Move, score);
             return score * scoreMultiplier;
         });
 
-        return orderedNodes.First().move;
+        return orderedNodes.First().Move;
     }
 
     private float GetScore(BoardNode boardNode)
     {
-        if (boardNode.Children.Count == 0) return boardNode.GetScore() / (float)boardNode.depth;
+        if (boardNode.Children.Count == 0) return boardNode.GetScore() / (float)boardNode.Depth;
 
         if (boardNode.BoardState.CurrentPlayer == BoardState.Player.CROSS)
             return boardNode.Children.Max(node => GetScore(node));
@@ -67,8 +66,8 @@ public partial class BoardAnalyzer : Node
         {
             BoardState = boardState,
             Children = children,
-            move = move,
-            depth = depth
+            Move = move,
+            Depth = depth
         };
     }
 }

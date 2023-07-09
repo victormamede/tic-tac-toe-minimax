@@ -1,9 +1,9 @@
-using Godot;
-using System;
+namespace TicTacToe;
 
 public partial class Cell : Area2D
 {
-    public int BoardIndex = 0;
+    public int BoardIndex { get; set; } = 0;
+
     private CellState _state = CellState.FREE;
 
 
@@ -28,10 +28,7 @@ public partial class Cell : Area2D
         Redraw();
     }
 
-    public void SetHighlight(bool highlighted)
-    {
-        _highlight.Visible = highlighted;
-    }
+    public void SetHighlight(bool highlighted) => _highlight.Visible = highlighted;
 
     public void SetScore(float score)
     {

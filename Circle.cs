@@ -1,5 +1,4 @@
-using Godot;
-using System;
+namespace TicTacToe;
 
 [Tool]
 public partial class Circle : Node2D
@@ -37,11 +36,9 @@ public partial class Circle : Node2D
             QueueRedraw();
         }
     }
-    private Color _color = new Color(1f, 1f, 1f);
+    private Color _color = new(1f, 1f, 1f);
 
 
-    public override void _Draw()
-    {
+    public override void _Draw() =>
         DrawArc(Vector2.Zero, _radius, 0, 2 * Mathf.Pi, 36, _color, _width);
-    }
 }

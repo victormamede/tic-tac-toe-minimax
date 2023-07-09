@@ -1,24 +1,18 @@
-using Godot;
-using System;
-using System.Linq;
+namespace TicTacToe;
+
 using System.Collections.Generic;
 
 public struct BoardNode
 {
-    public BoardState BoardState;
-    public List<BoardNode> Children;
-    public int move;
-    public int depth;
+    public BoardState BoardState { get; set; }
+    public List<BoardNode> Children { get; set; }
+    public int Move { get; set; }
+    public int Depth { get; set; }
 
-    public float GetScore()
+    public float GetScore() => BoardState.GetWinner() switch
     {
-        switch (BoardState.GetWinner())
-        {
-            case BoardState.Player.CROSS:
-                return 1f;
-            case BoardState.Player.CIRCLE:
-                return -1f;
-        }
-        return 0f;
-    }
+        BoardState.Player.CROSS => 1f,
+        BoardState.Player.CIRCLE => -1f,
+        _ => 0f,
+    };
 }
